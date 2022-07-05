@@ -8,11 +8,75 @@
     <title>Document</title>
 </head>
 <body>
+    <header>
+        <div class="logo">
+            <img src="img/Logo.png" alt="">
+        </div>
+    </header>
+    <div class="conteudo">
+        <main>
+         <div class="containermodel">
+           <p class="titulo1">Escolha o Modelo</p>
+            <div class="model">
+                <div class="tshirt" >
+                <img class="check "   onclick="selecionacamisa(this,'T-shirt')" src="img/tshirt.png" >
+                <p>T-shirt</p>
+                </div>
+                <div class="camiseta" >
+                    <img  onclick="selecionacamisa(this,'Camiseta')"  src="img/Camiseta.png" >
+                    <p>
+                        Camiseta
+                    </p>
+                </div>
+               <div class="mangalonga" >
+                <img onclick="selecionacamisa(this, 'Mangalonga')" src="img/Mangalonga.png" >
+                <P>Manga longa</P>
+               </div>
+            </div>
+            <p class="titulo">Escolha a Gola</p>
+            <div class="model golinha">
+                <div class="tshirt" >
+                <img onclick="selecionagola(this, 'Gola-V')" src="img/GolaV.png" >
+                <p>Gola-V</p>
+                </div>
+                <div class="camiseta" >
+                    <img  onclick="selecionagola(this, 'Gola Redonda')"  src="img/GolaRedonda.png" >
+                    <p>
+                        Gola Redonda
+                    </p>
+                </div>
+               <div class="mangalonga" >
+                <img onclick="selecionagola(this, 'Gola Polo')" src="img/GolaPolo.png" >
+                <P>Gola Polo </P>
+               </div>
+            </div>
+            <p class="titulo">Escolha a Gola</p>
+            <div class="model tecido">
+                <div class="tshirt" >
+                <img onclick="selecionatecido(this, 'Seda')" src="img/Seda.png" >
+                <p>Seda</p>
+                </div>
+                <div class="camiseta" >
+                    <img  onclick="selecionatecido(this, 'Algodão')"  src="img/Algodão.png" >
+                    <p>
+                        Algodão
+                    </p>
+                </div>
+               <div class="mangalonga" >
+                <img onclick="selecionatecido(this, 'Poliester')" src="img/Poliester.png" >
+                <P>Poliester </P>
+               </div>
+            </div>
+            <p class="titulo">Imagem de referência</p>
+            <input type="text" placeholder="     Insira o link">
+            </div>
+        </main>
+        <aside>
+        <img src="img/ilustração.png" alt="">
+        </aside>
+    </div>
 
 
-
-
-    
     <script src="script.js"></script>
 </body>
 </html>

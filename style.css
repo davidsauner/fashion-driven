@@ -1,1 +1,81 @@
-body{background-color: brown;}
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+body{background-color: brown;
+    font-family: 'Roboto', sans-serif;
+     margin: 0%  ;}
+    .conteudo{
+        display: flex;
+        box-sizing: border-box;
+    }
+.logo{
+    width: 1366px;
+    background-color: #404EED;
+    height: 90px;
+    display: flex;
+    align-items: center;
+    margin-top: 0%;
+    padding: 0%;
+}
+.logo img{
+    margin-left: 50px;
+    
+}
+main{
+    width: 696px;
+    height:790px ;
+    background-color: green;
+}
+aside{
+    width: 670px;
+    height: 790px;
+    background-color:#404EED ;
+}
+.containermodel{
+    background-color: white;
+    width: 400px;
+    height: 790px;
+    margin: 0 90px;
+    margin-top: 0%;
+}
+.model{
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 30px;
+}
+.tshirt,.camiseta,.mangalonga{
+    display:flex;
+    align-items:center;
+    flex-direction: column;
+}
+.selecionado{
+    border-width: 300px;
+    border-radius: 50px;
+    border: 3px solid #404EED;
+}
+
+p{
+    margin:0px ;
+    padding-top: 30px;
+}
+.titulo1{
+    padding: 30px 0 ;
+}
+.titulo{
+    padding-top:  10px ;
+    padding-bottom: 20px;
+}
+.golinha img{
+    height: 70px;
+    width: 80px;
+    
+}
+input{
+     width: 395px;
+     height: 40px;
+     border-radius: 10px;
+     outline-style: none;
+     border-style: none;
+     background:  #dbc6c6;
+     display: flex;
+     align-items: center;
+     
+}
