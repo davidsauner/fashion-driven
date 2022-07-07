@@ -1,12 +1,12 @@
-// let nome = prompt("insira seu nome para montar sua camiseta")
-// function verificaNome(){
-//     if(nome === ""){
-//         alert("insira um nome")
-//         location.reload()
-//     }
-// }
-// verificaNome()
-
+ let nome = prompt("insira seu nome para montar sua camiseta")
+ function verificaNome(){
+     if(nome === ""){
+         alert("insira um nome")
+         location.reload()
+     }
+ }
+ verificaNome()
+BuscarCamisas()
 let modelo;
 let gola;
 let tecido;
@@ -14,6 +14,11 @@ let roupas;
 let md1;
 let gl1;
 let tc1;
+let camisetas;
+let newmodelo;
+let newneck;
+let newmaterial;
+let pedidoexistente
 
 function selecionacamisa(borda , nome ,m1){
     let camisa = document.querySelector(' .camisa .selecionado')
@@ -90,6 +95,7 @@ function finalizapedido(){
     alert(`Pedido de uma camiseta modelo ${md1}, com ${gl1}, e tecido de ${tc1}.`)
 
  enviarmodelo()
+ limpacampos()
 }
 function enviarmodelo(){
 let enviando  = axios.post('https://mock-api.driven.com.br/api/v4/shirts-api/shirts', roupas)
@@ -98,7 +104,77 @@ enviando.catch(naoEnviou)
 }
 function enviou(){
     alert("encomenda confirmada")
+    BuscarCamisas()
 }
 function naoEnviou(){
     alert("Erro ao processar a encomenda")
+}
+
+function BuscarCamisas(){
+    let recebendo = axios.get('https://mock-api.driven.com.br/api/v4/shirts-api/shirts')
+    recebendo.then(recebeu)
+    recebendo.catch(naoRecebeu)
+}
+function recebeu(resposta){
+    camisetas = resposta.data;  
+    colocacamisetas()
+
+}
+function colocacamisetas(){
+    let hello = document.querySelector(".roupas")
+    hello.innerHTML = ""
+    for(let i = 0; i < 10; i++){
+        hello.innerHTML +=  `<li class="roupa1" onclick="pegacamiseta('${camisetas[i].model}', '${camisetas[i].neck}','${camisetas[i].material}' , '${camisetas[i].image}', '${camisetas[i].owner} ')" >
+        <img src="${camisetas[i].image}" alt="">
+        <p><span class="creator">criador:</span><span class="userc">${camisetas[i].owner}</span></p>
+    </li>`
+        
+    }
+ 
+    
+
+    
+
+}
+
+function naoRecebeu(){
+    alert("ihhhh nao veio as camisetas")
+}
+function limpacampos(){
+    document.querySelector(".link").value  = ""
+    document.querySelector('.tecido .selecionado').classList.remove('selecionado')
+    document.querySelector('.golinha .selecionado').classList.remove('selecionado')
+    document.querySelector('.camisa .selecionado').classList.remove('selecionado')
+}
+function pegacamiseta(model1,neck1,material1,image1,owner1 ){
+    console.log("entrou")
+pedidoexistente = {
+    model: model1,
+	neck: neck1,
+	material: material1,
+	image: image1,
+	owner: owner1,
+	author: nome,
+}
+console.log(pedidoexistente)
+let confirma = confirm(`Confirma o pedido da camiseta no modelo ${pedidoexistente.model}, na gola em ${pedidoexistente.neck}, e no materail de ${pedidoexistente.material}`)
+
+if(confirma === true){
+    alert("seu pedido ira ser processado")
+    let enviando  = axios.post('https://mock-api.driven.com.br/api/v4/shirts-api/shirts', pedidoexistente)
+    enviando.then(envioupedidoExistente)
+    enviando.catch(naoEnviouPedido)
+}else{
+    alert("pedido cancelado")
+}
+
+
+
+}
+function envioupedidoExistente(){
+    alert("Pedido feito com sucesso")
+    BuscarCamisas()
+}
+function naoEnviouPedido(){
+    alert("Falha em executar o pedido tente novamente")
 }
