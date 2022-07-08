@@ -1,8 +1,16 @@
-let nome = prompt("insira seu nome para montar sua camiseta");
+let nome = "";
+let confirmanome;
 function verificaNome() {
-  if (nome === "") {
-    alert("insira um nome");
-    location.reload();
+  while (nome === "") {
+    nome = prompt("insira seu nome para montar sua camiseta");
+  }
+  if (nome === null) {
+    confirmanome = confirm(
+      "Necessario um nome para executar os pedidos, caso queira colocar um nome para compra clique em Ok"
+    );
+    if (confirmanome) {
+      location.reload();
+    }
   }
 }
 verificaNome();
@@ -62,13 +70,13 @@ function unlockbutton() {
 function finalizapedido() {
   let url = document.querySelector(".link").value;
   if (url === "") {
-    alert("colocar uma imagem de refencia");
+    alert("Colocar uma imagem de referência");
     return;
   }
   try {
     let urll = new URL(url);
   } catch (err) {
-    alert("coloque uma url valida");
+    alert("Coloque uma url valida");
     return;
   }
 
@@ -80,7 +88,6 @@ function finalizapedido() {
     owner: nome,
     author: nome,
   };
-
   alert(
     `Pedido de uma camiseta modelo ${md1}, com ${gl1}, e tecido de ${tc1}.`
   );
@@ -97,7 +104,7 @@ function enviarmodelo() {
   enviando.catch(naoEnviou);
 }
 function enviou() {
-  alert("encomenda confirmada");
+  alert("Encomenda confirmada");
   BuscarCamisas();
 }
 function naoEnviou() {
@@ -121,13 +128,13 @@ function colocacamisetas() {
   for (let i = 0; i < 10; i++) {
     hello.innerHTML += `<li class="roupa1" onclick="pegacamiseta('${camisetas[i].model}', '${camisetas[i].neck}','${camisetas[i].material}' , '${camisetas[i].image}', '${camisetas[i].owner} ')" >
         <img src="${camisetas[i].image}" alt="">
-        <p><span class="creator">criador:</span><span class="userc">${camisetas[i].owner}</span></p>
+        <p><span class="creator">Criador: </span><span class="userc">${camisetas[i].owner}</span></p>
     </li>`;
   }
 }
 
 function naoRecebeu() {
-  alert("ihhhh nao veio as camisetas");
+  alert("Erro ao processar as camisetas");
 }
 function limpacampos() {
   document.querySelector(".link").value = "";
