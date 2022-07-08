@@ -55,6 +55,7 @@ aside img {
 .tshirt,
 .camiseta,
 .mangalonga {
+  cursor: pointer;
   display: flex;
   align-items: center;
   flex-direction: column;
@@ -148,6 +149,7 @@ footer {
 }
 
 .roupa1 {
+  cursor: pointer;
   display: flex;
   flex-direction: column;
   align-items: center;
